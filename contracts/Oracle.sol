@@ -118,6 +118,10 @@ contract Oracle is Ownable {
         return cumulativePriceTime / cumulativeTime;
     }
 
+    function getLastUpdateTime() public view returns (uint256) {
+        return lastUpdatedTimestamp;
+    }
+
     function resetTWAP() public onlyOwner {
         cumulativePriceTime = 0;
         cumulativeTime = 0;
