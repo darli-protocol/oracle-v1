@@ -164,6 +164,24 @@ describe("Oracle Contract", function () {
     expect(await oracle.getTotalStaked()).to.equal(ethers.parseEther("350"));
   });
 
+  it("Should return the Last Update Time", async function () {
+    await oracle.connect(addr1).stake(ethers.parseEther("100"));
+    await oracle.connect(addr1).vote(ethers.parseEther("200"));
+
+    await oracle.connect(addr2).stake(ethers.parseEther("200"));
+    // getting timestamp
+    const blockNumBefore = await ethers.provider.getBlockNumber();
+    const blockBefore = await ethers.provider.getBlock(blockNumBefore);
+    const timestampBefore = blockBefore.timestamp;
+    await oracle.connect(addr2).vote(ethers.parseEther("300"));
+
+    await ethers.provider.send("evm_increaseTime", [200]); // Increase time by 1 hour
+    await ethers.provider.send("evm_mine"); // Mine a new block
+
+    const lastTime = await oracle.getLastUpdateTime();
+    expect(lastTime).to.be.closeTo(timestampBefore, 1);
+  });
+
   it("should calculate TWAP correctly", async function () {
     // Stake tokens and vote on a price
     await oracle.connect(addr1).stake(ethers.parseEther("500"));
