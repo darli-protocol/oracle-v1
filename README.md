@@ -5,7 +5,7 @@
 
 **Real-Time On Chain Price Feeds for Web3**
 
-The Darli Pana Price Feed is a Solidity implementation of an immutable Oracle Factory contract that allows anyone to deploy a new Oracle. Each Oracle contract allows Darli governance token holders to participate in price voting by staking tokens in a pool. The Oracle keeps track of staked tokens and allows Darli token holders to vote on a price, which can then be retrieved by other contracts.
+The Darli Price Feed is a Solidity implementation of an immutable Oracle Factory contract that allows anyone to deploy a new Oracle. Each Oracle contract allows Darli governance token holders to participate in price voting by staking tokens in a pool. The Oracle keeps track of staked tokens and allows Darli token holders to vote on a price, which can then be retrieved by other contracts.
 
 ## Features
 * **Real-Time Price Updates:** Access accurate and up-to-date pricing data.
@@ -27,8 +27,8 @@ The Darli Pana Price Feed is a Solidity implementation of an immutable Oracle Fa
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/darlilabs/pana-oracle-v1.git
-   cd pana-oracle-v1
+   git clone https://github.com/darli-protocol/oracle-v1.git
+   cd oracle-v1
    npm install
    ```
 
@@ -58,7 +58,7 @@ A factory contract to deploy new Oracle contracts.
 The core contract for price voting by staked Darli governance token holders.
 
 ### Reporter CLI
-This package includes a CLI script for deploying the latest Pana Oracle V1 smart contracts to any EVM (Ethereum Virtual Machine) compatible network.
+This package includes a CLI script for deploying the latest Darli Oracle V1 smart contracts to any EVM (Ethereum Virtual Machine) compatible network.
 
 ### Reporter SDK
 This repository contains a set of SDKs for reporters to easily publish "reporter" data in any supported languages. We currently support the following languages:
